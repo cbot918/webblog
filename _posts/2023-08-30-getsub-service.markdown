@@ -35,10 +35,10 @@ tags:   Resources
 ```go
 func download(oldUrl string) (string, error) {
 
-  // 這邊將傳進來的 oldUrl 做字串取代
+    // 這邊將傳進來的 oldUrl 做字串取代
 	newUrl := strings.Replace(oldUrl, "tree/main", "trunk", 1)
 
-  // regex 將檔案名字取出來, 後面會用到
+    // regex 將檔案名字取出來, 後面會用到
 	folderName := strings.Trim(regexp.MustCompile(`/trunk/(.*)$`).FindString(newUrl), "/trunk/")
 
 	cmd := cmdy.New() // 這邊偷懶使用自己包好的操作 command 的函式庫
@@ -48,7 +48,7 @@ func download(oldUrl string) (string, error) {
 	cmd3 := fmt.Sprintf("mv %s.tar files", folderName) // 這邊只是把檔案整理一起
 	cmd4 := fmt.Sprintf("rm -rf %s", folderName)
 
-  // 以下逐個指令執行
+    // 以下逐個指令執行
 	err := cmd.Run([]string{cmd0})
 	if err != nil {
 		log.Fatal(err)
@@ -82,8 +82,8 @@ func (ctr *Controller) GetSub(c *fiber.Ctx) error {
 	oldUrl := c.Queries()["url"]
 	fmt.Println(oldUrl)
 
-  // 執行下載的主要邏輯函式
-  name, err := download(oldUrl)
+    // 執行下載的主要邏輯函式
+    name, err := download(oldUrl)
 	if err != nil {
 		fmt.Println("download error")
 		return err
@@ -94,7 +94,7 @@ func (ctr *Controller) GetSub(c *fiber.Ctx) error {
 	path := fmt.Sprintf("./files/%s.tar", name)
 	nname := fmt.Sprintf("%s.tar", name)
 	// 這是fiber框架提供的api, 可以提供client端檔案下載
-  return c.Download(path, nname)
+    return c.Download(path, nname)
 }
 ```
 
@@ -111,5 +111,5 @@ curl -o a.tar https://getsub.fiveplanet.online/?url=https://github.com/cbot918/t
 說明: -o a.tar 算是個 work around, 未來會再優惠, 讓指令不要這麼冗長.
 
 ## 後記
-再簡單的服務, 菜鳥實際做起來還是還是有些地方會卡卡, 只能多練習, 勤能補拙, 下面附上測試連結, 目前 service 沒有自動 recover, 只能三不五時上去看一下. 這個專案還引出另一個小副本, 在上雲的時候因為很想看 log, 所以就想說, 有機會自己架架看 Grafana Loki, 不過這就是改天再繼續的坑了, 該去睡了xD
+再簡單的服務, 菜鳥實際做起來還是還是有些地方會卡卡, 只能多練習, 勤能補拙, 下面附上測試連結, 目前 service 沒有自動 recover, 只能三不五時上去看一下. 這個專案還引出另一個小副本, 在上雲的時候因為很想看 log, 所以就想說, 有機會自己架架看 Grafana Loki, 不過這就是改天再繼續的坑了！
 
