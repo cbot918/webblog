@@ -108,7 +108,7 @@ curl -o a.tar https://getsub.fiveplanet.online/?url=https://github.com/cbot918/t
 ```
 預期得到一個 go-three-layer-poc 的資料夾
 
-說明: -o a.tar 算是個 work around, 未來會再優惠, 讓指令不要這麼冗長.
+說明: -o a.tar 算是個 work around, 未來會再優化, 讓指令不要這麼冗長.
 
 ## 後記
 再簡單的服務, 菜鳥實際做起來還是還是有些地方會卡卡, 只能多練習, 勤能補拙, 下面附上測試連結, 目前 service 沒有自動 recover, 只能三不五時上去看一下. 這個專案還引出另一個小副本, 在上雲的時候因為很想看 log, 所以就想說, 有機會自己架架看 Grafana Loki, 不過這就是改天再繼續的坑了！
