@@ -99,7 +99,7 @@ func (ctr *Controller) GetSub(c *fiber.Ctx) error {
 ```
 
 ## 測試跟部屬
-在local測試完成後, dockerfile 做個 multi-stage-build 縮減image大小(500MB變成50MB), 先試著部屬我的最愛 [Zeabur](https://zeabur.com/) 平台, 自己耍白痴加上後來發現, 應該是我在docker裡面做得一些操作, 導致部屬不成功(不是很確定), 所以想說先做個能動就好, 我就去 linode 的 VM 環境部屬看看, 順便測試一下剛買的網址( 在 godaddy 買了一個39元的網址, 開心xD ). 一番折騰後, 終於部屬上去了! 到 cloudflare 設定網域(因為有把 godaddy 轉到cloudflare 上面, 使用他的 https 服務), 新增一筆A record, 指定 cname (自幾決定), 指定目標 ip (去linode看), 就綁好網域了. 這期間還經歷了, 需要把docker的port開到80上面, 如果之後還想增加服務, 預計是需要 Load Balancer 了, 還不太熟, 之後再試(倒)
+在local測試完成後, dockerfile 做個 multi-stage-build 縮減image大小(500MB變成50MB), 先試著部屬我的最愛 [Zeabur](https://zeabur.com/) 平台, 自己耍白痴加上後來發現, 應該是我在docker環境裡面做的一些操作, 導致部屬不成功, 所以想說先做個能動就好, 我就去 linode 的 VM 環境部屬看看, 順便測試一下剛買的網址( 在 godaddy 買了一個39元的網址, 開心xD ). 一番折騰後, 終於部屬上去了! 到 cloudflare 設定網域(因為有把 godaddy 轉到cloudflare 上面, 使用他的 https 服務), 新增一筆A record, 指定 cname (自幾決定), 指定目標 ip (去linode看), 就綁好網域了. 這期間還經歷了, 需要把docker的port開到80上面, 如果之後還想增加服務, 預計是需要 Load Balancer 了, 還不太熟, 之後再試(倒)
 
 ## 測試指令
 適用於 linux like 系統, win 的話指令要另外做, 有機會在 win 上測試再補上來!
