@@ -17,6 +17,7 @@ tags:   Resources
 ## Getting Started
 1. 開 VM
 Vagrantfile
+
 ```
 Vagrant.configure("2") do |config|
 
