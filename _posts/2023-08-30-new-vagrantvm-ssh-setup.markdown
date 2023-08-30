@@ -50,7 +50,9 @@ ssh-keygen
 ```
 
 4. 將 nginx.pub 複製到 VM的 ~/.ssh/authorized_keys 內
-將 nginx.pub 的內容複製起來
+
+先將 nginx.pub 的內容複製起來
+
 在 VM 裡面
 ```bash
 vim ~/.ssh/authorized_keys
@@ -58,12 +60,14 @@ vim ~/.ssh/authorized_keys
 ```
 
 5. 在 Host Machine 綁 /etc/hosts
+
 在 /etc/hosts 新增以下內容(注意新增時不要覆蓋到舊的)
 ```
 nginx.com  192.168.56.6
 ```
 
 6. 在 Host Machine 設定 ssh config
+
 打開 ~/.ssh/config 加入以下
 ```
 Host nginx
