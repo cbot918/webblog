@@ -41,9 +41,9 @@ end
 vagrant up
 vagrant ssh
 ```
-會進到內部
+會進到內部, exit是退出VM
 
-3. 產生keypair
+3. 回到 Host Machine(外面那台自己的) 產生keypair
 ```bash
 ssh-keygen
 # 此例子指定名稱為 /home/yale/.ssh/nginx
