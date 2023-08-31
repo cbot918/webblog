@@ -15,7 +15,14 @@ tags:   Resources
 1. 簡單明瞭, 一看大概就知道cli app的指令結構
 2. 有一個 ~/.todos 的檔案去維護資料(用[viper](https://github.com/spf13/viper)去操作), 可以作為config參考
 
-### 1. 安裝golang
+### 1. 下載專案
+[專案位置](https://github.com/cbot918/template/tree/main/go-cobra-cli)
+
+oneliner 下載
+```
+curl -o a.tar https://getsub.fiveplanet.online/?url=https://github.com/cbot918/template/tree/main/go-cobra-cli && tar -xf a.tar && rm a.tar
+```
+### 2. 安裝golang
 [golang安裝頁面](https://go.dev/doc/install) 
 
 這邊提供 linux 的安裝指令
@@ -29,10 +36,6 @@ export PATH=$PATH:/usr/local/go/bin
 source ~/.bashrc
 go
 # 應該看到go指令畫面
-```
-### 2. 下載專案
-```
-curl -o a.tar https://getsub.fiveplanet.online/?url=https://github.com/cbot918/template/tree/main/go-cobra-cli && tar -xf a.tar && rm a.tar
 ```
 
 ### 3. 安裝app
