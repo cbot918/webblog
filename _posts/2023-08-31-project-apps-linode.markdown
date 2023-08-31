@@ -16,21 +16,21 @@ tags:   Resources
 ### getsub
 - [這篇](https://cbot918.github.io/webblog/2023/08/29/getsub-service/)介紹過的 github 子目錄下載器, 可以 oneliner 下載某個 github repo 下面的子目錄
 
-### portainer
+### [portainer](https://github.com/portainer/portainer)
 - docker 監控頁面
-### minio
+### [minio](https://github.com/minio/minio)
 - 知名的開源 Object Storage, 目前頁面導轉有點問題, workaround 另開port處理
 
 ## 進度規劃
 1. 設定一下 proxy: nginx
 2. 把各個服務放到 proxy 裡
-3. 測試 domain 連結會正確導轉
+3. 測試 domain 路由會正確導轉
 4. 實作或啟動各服務
 
 ## 未來預計加入等等服務做練習
 - PostgreSQL
-- Grafana Loki
-- NSQ
+- [Grafana Loki](https://grafana.com/docs/loki/latest/installation/)
+- [NSQ](https://github.com/nsqio/nsq)
 
 ## 專案網址
 - 目前先不對外開放, 畢竟亂到沒法看xD
