@@ -15,8 +15,7 @@ tags:   Resources
 1. 簡單明瞭, 一看大概就知道cli app的指令結構
 2. 有一個 ~/.todos 的檔案去維護資料(用[viper](https://github.com/spf13/viper)去操作), 可以作為config參考
 
-### 1. 下載專案
-[專案位置](https://github.com/cbot918/template/tree/main/go-cobra-cli)
+### 1. 下載[專案](https://github.com/cbot918/template/tree/main/go-cobra-cli)
 
 oneliner 下載
 ```
