@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  (整理) 一個方便的go-cobra-cli-todos-app
+title:  (整理) 一個方便的 Go Cli App Bootstrap Template
 date:   2023-08-31 23:13:00 +0800
 image:  02.jpg
 tags:   Resources
