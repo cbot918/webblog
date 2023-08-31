@@ -6,9 +6,9 @@ image:  02.jpg
 tags:   Resources
 ---
 
-紀錄一下這個專案, 是由幾個子專案集合而成的一個專案集, 因為目前會部屬在 linode 的VM上, 所以名稱叫做 Apps Linode
+紀錄一下這個專案, 是由幾個service集合而成的一個專案, 架構上目前打算都做在一台 VM 裡面, 這樣資源存取走內部比較方便一點( 缺點是耦合性會高一些 )
 
-## 專案s
+## services
 ### ghcui ( go-http-client-ui ):
 - 類似 postman 的 gui client ,有時候想快速測試 http request, postman比較慢一點, curl 要存起來比較不方便, 有找到一款 [Hoppscotch](https://github.com/hoppscotch/hoppscotch), 比較接近, 但因為自己想把資料存到自己的資料庫, 因此打算自己開發一款可以在web上, 也可以在local簡單自用的
 ### sm ( service-monitor ):
