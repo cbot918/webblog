@@ -52,6 +52,7 @@ Vagrant.configure("2") do |config|
 
 end
 ```
+
 2. 在 Guest 裡面查 gateway
 ```go
 netstat -rn
