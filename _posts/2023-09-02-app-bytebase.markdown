@@ -20,6 +20,8 @@ bytebase 是一個資料庫管理界面, 有別於傳統的桌面app, 這款GUI�
 5. 有 schema 管理的功能
 6. 可以監看 slow query 
 
+還有其他這個專案在推廣的 DB_CICD自動化 的功能, 就在請有興趣的朋友自己試試看囉, 因為我太菜還看不太懂xD
+
 其中最喜歡的是 1-4, 覺得很不錯的 app 推薦給大家
 
 安裝是我是使用 [docker安裝](https://www.bytebase.com/docs/get-started/self-host/#docker), 直接上面的指令裝好, 瀏覽 localhost:5678, 就可以看到 web 界面囉, 真的覺得是很棒棒的 app 呢！
