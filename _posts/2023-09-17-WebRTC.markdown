@@ -25,7 +25,7 @@ tags:   Resources
 2. Media Server
 
 ## WebRTC
-WebRTC 是前端為起點的技術, 搭配後端做點對點握手/NAT路由穿透, 由 Google 發起, 內建在 [WebAPI](https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection) 裡的一個 WebAPI.
+WebRTC 是前端為起點的技術, 搭配後端做點對點握手/NAT路由穿透, 由 Google 發起, 內建在 [WebAPI](https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection) 裡.
 
 WebRTC 是點對點連線, 理論上連線後不需要後端 ( 連線時需要後端幫忙雙方做握手 )
 
