@@ -152,7 +152,7 @@ export default CreateRoom;
 
 /client/src/routes/Room.js
 ```js
-// 節省篇幅此處省略
+// 為了節省篇幅再請直接 clone repo 來看
 ```
 這個檔案程式碼比較多, 建議直接參考 [影片](https://www.youtube.com/watch?v=NBPDYco-alo&list=PLK0STOMCFms4nXm1bRUdjhPg0coxI2U6h&index=9) 及 [啟動程式碼](https://github.com/coding-with-chaim/data-channel-starter-files), 有了前面 google tutor 的 lab, 這邊的code應該相對來說可以看懂, 就是多了後端 nodejs 的 socketio 程式碼, 要稍微讀一下
 
