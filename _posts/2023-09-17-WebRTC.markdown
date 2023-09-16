@@ -8,7 +8,7 @@ tags:   Resources
 
 ## 此文主要參考
 1. [Real time communication with WebRTC](https://codelabs.developers.google.com/codelabs/webrtc-web#0)
-2. [WebRTC Data Channel | Text Chat Using WebRTC Data Channel](https://www.youtube.com/watch?v=NBPDYco-alo&list=PLK0STOMCFms4nXm1bRUdjhPg0coxI2U6h&index=9)
+2. [Text Chat Using WebRTC Data Channel](https://www.youtube.com/watch?v=NBPDYco-alo&list=PLK0STOMCFms4nXm1bRUdjhPg0coxI2U6h&index=9)
 
 ## 文章內容用到的技術
 1. WebRTC 
@@ -152,7 +152,7 @@ export default CreateRoom;
 
 
 ### 後記1
-此文只涵蓋最基礎的 WebRTC 一對一連線, WebRTC還可以使用一些技術, 做一對多, 或是實現各種功能, 像是即時白板功能, 可以參考此 [playlist](https://www.youtube.com/watch?v=JhyY8LdAQHU&list=PLK0STOMCFms4nXm1bRUdjhPg0coxI2U6h&index=3)
+此文只涵蓋最基礎的 WebRTC 一對一連線, WebRTC還可以使用一些技術, group chat, screen sharing, file transfer 等等, 可以參考此 [playlist](https://www.youtube.com/watch?v=JhyY8LdAQHU&list=PLK0STOMCFms4nXm1bRUdjhPg0coxI2U6h&index=3)
 
 ### 後記2
 這篇文章是獻給個好朋友, 希望知道 WebRTC 怎麼做訊息傳遞, 不過以 Chat 的純文字傳送來說, 使用 Websocket 會相對簡單很多. 特別感謝好朋友, 因為自己想研究視訊這塊也很久了, 也總算是一圓了心願xD( 雖然離搞懂還有一段距離, 但是架構已經了解了, 實作就剩下花時間下去 )
