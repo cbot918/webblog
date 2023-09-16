@@ -6,6 +6,10 @@ image:  02.jpg
 tags:   Resources
 ---
 
+## 此文主要參考
+1. [Real time communication with WebRTC](https://codelabs.developers.google.com/codelabs/webrtc-web#0)
+2. [WebRTC Data Channel | Text Chat Using WebRTC Data Channel](https://www.youtube.com/watch?v=NBPDYco-alo&list=PLK0STOMCFms4nXm1bRUdjhPg0coxI2U6h&index=9)
+
 ## 文章內容用到的技術
 1. WebRTC 
 2. Javascript 
@@ -146,12 +150,14 @@ export default CreateRoom;
 這個檔案程式碼比較多, 建議直接參考 [影片](https://www.youtube.com/watch?v=NBPDYco-alo&list=PLK0STOMCFms4nXm1bRUdjhPg0coxI2U6h&index=9) 及 [啟動程式碼](https://github.com/coding-with-chaim/data-channel-starter-files), 有了前面 google tutor 的 lab, 這邊的code應該相對來說可以看懂, 就是多了後端 nodejs 的 socketio 程式碼, 要稍微讀一下
 
 
+
+### 後記
+這篇文章是獻給個好朋友, 希望知道 WebRTC 怎麼做訊息傳遞, 不過以 Chat 的純文字傳送來說, 使用 Websocket 會相對簡單很多. 特別感謝好朋友, 因為自己想研究視訊這塊也很久了, 也總算是一圓了心願xD( 雖然離搞懂還有一段距離, 但是架構已經了解了, 實作就剩下花時間下去 )
+
+
 註1: 防火牆穿透供參 
 1. [ICE and WebRTC](https://temasys.io/guides/developers/webrtc-ice-sorcery/) 
 
 2. [穿越防火牆技術](http://www.cs.nccu.edu.tw/~lien/Writing/NGN/firewall.htm) 
 
 3. [NAT穿透](https://zh.wikipedia.org/zh-tw/NAT%E7%A9%BF%E9%80%8F)
-
-### 後記
-這篇文章是獻給個好朋友, 希望知道 WebRTC 怎麼做訊息傳遞, 不過以 Chat 的純文字傳送來說, 使用 Websocket 會相對簡單很多. 特別感謝好朋友, 因為自己想研究視訊這塊也很久了, 也總算是一圓了心願xD( 雖然離搞懂還有一段距離, 但是架構已經了解了, 實作就剩下花時間下去 )
