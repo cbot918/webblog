@@ -45,7 +45,7 @@ Media Server 需要寫一台 Server, 並且推流/拉流需要額外賴, 樓主�
 這邊推薦 [ Google 官方 Tutorial](https://codelabs.developers.google.com/codelabs/webrtc-web#0) , 這個文件讓我學習了G社工程師的 clean code (真的滿漂亮的), 但有個小提醒, 此專案開始為了簡化程式碼, 將 peer to peer 雙方的連線數據交換, 寫在同一個檔案裡面, 一開始我看的有點疑惑, 但懂了之後也是可以理解
 
 ### Stage 2
-Why 簡化要把連線雙方的程式碼寫在同一個檔案？因為 P2P 連線, 需要做數據交換, 舉例來說, 使用者A開了一間房間, 有了房間號碼(可以讓這房間號碼在網址內), B使用者拿到A使用者的網址(也就是有了房間號碼), 貼到瀏覽器裡, 這時候會需要一個從 B使用者往A使用者主動傳送訊息的行為, 如果這個行為, 是在同一個檔案內, 那直接就做 function call 就解決了 (當然這只能作為 demo, prod一定是兩個獨立的client). 真實場景, 我們需要台簡單的server, 又因為會有 server 往 client 送資料, 所以需要 websocket 或是 SSE, 增加了 tutor 的複雜度, 所以 G官方Tutor將連線雙方的程式碼放在一起做簡化. 
+Why 簡化要把連線雙方的程式碼寫在同一個檔案？因為 P2P 連線, 需要做數據交換, 舉例來說, 使用者A開了一間房間, 有了房間號碼( 可以讓這房間號碼在網址內 ), B使用者拿到A使用者的網址( 也就是有了房間號碼 ), 貼到瀏覽器裡, 這時候會需要一個從 B使用者往A使用者主動傳送訊息的行為, 如果這個行為, 是在同一個檔案內, 那直接就做 function call 就解決了( 當然這只能作為 demo, prod一定是兩個獨立的client ). 真實場景, 我們需要台簡單的server, 又因為會有 server 往 client 送資料, 所以需要 websocket 或是 SSE, 增加了 tutor 的複雜度, 所以 G官方Tutor將連線雙方的程式碼放在一起做簡化. 
 
 ### Stage 3
 在 [G Tutor Repo](https://github.com/googlecodelabs/webrtc-web) 的 main.js 259-262
