@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  (技術架構微解釋) WebRTC I
+title:  (技術微解釋) WebRTC I
 date:   2023-09-17 06:34:00 +0800
 image:  02.jpg
 tags:   Resources
