@@ -1,0 +1,157 @@
+---
+layout: post
+title:  (技術架構微解釋) WebRTC I
+date:   2023-09-17 06:34:00 +0800
+image:  02.jpg
+tags:   Resources
+---
+
+## 文章內容用到的技術
+1. WebRTC 
+2. Javascript 
+3. React ( 一點點 )
+4. Nodejs SocketIO ( 一點點 )
+
+## 前情提要
+有天突發奇想, 試試看做個 app 可以找外國人練習 speaking, 所以開始研究怎麼做視訊app. 
+
+## 研究調查
+看了一些資料後發現, 看得懂且自己做起來可行的架構
+1. WebRTC
+2. Media Server
+
+## WebRTC
+WebRTC 是前端為起點的技術, 搭配後端做點對點握手/NAT路由穿透, 由 Google 發起, 內建在 [WebAPI](https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection) 裡的一個 WebAPI.
+
+WebRTC 是點對點連線, 理論上連線不需要後端( 在連線建立起來之後 )
+
+## Media Server
+Media Server 是中介伺服器, 負責將視訊提供方的資料轉到視訊接收方
+Media Server 架構分為兩段
+1. 推流：資料從視訊方推送到 Media Server上, 一般稱為「推流」
+2. 拉流：資料從 Media Server上, 傳送到 Client 端, 稱為「拉流」
+
+ex: 使用 [OBS](https://github.com/obsproject/obs-studio) 視訊直播, 將串流送到 Server 上, 然後前端使用 [FLV.js](https://github.com/bilibili/flv.js) 拉流播放
+
+## 兩種架構的選擇
+Media Server 需要寫一台 Server, 並且推流/拉流需要額外賴, 樓主技能點數有限(學...學不動了), 喜歡輕巧的解決方案, 所以選網頁內建的 WebRTC, 谷哥我大哥(X)
+
+## 開始學 WebRTC
+### Stage 1
+這邊推薦 [ Google 官方 Tutorial](https://codelabs.developers.google.com/codelabs/webrtc-web#0) , 這個文件讓我學習了G社工程師的 clean code (真的滿漂亮的), 但有個小提醒, 此專案開始為了簡化程式碼, 將 peer to peer 雙方的連線數據交換, 寫在同一個檔案裡面, 一開始我看的有點疑惑, 但懂了之後也是可以理解
+
+### Stage 2
+Why 簡化要把連線雙方的程式碼寫在同一個檔案？因為 P2P 連線, 需要做數據交換, 舉例來說, 使用者A開了一間房間, 有了房間號碼(可以讓這房間號碼在網址內), B使用者拿到A使用者的網址(也就是有了房間號碼), 貼到瀏覽器裡, 這時候會需要一個從 B使用者往A使用者主動傳送訊息的行為, 如果這個行為, 是在同一個檔案內, 那直接就做 function call 就解決了 (當然這只能作為 demo, prod一定是兩個獨立的client). 真實場景, 我們需要台簡單的server, 又因為會有 server 往 client 送資料, 所以需要 websocket 或是 SSE, 增加了 tutor 的複雜度, 所以 G官方Tutor將連線雙方的程式碼放在一起做簡化. 
+
+### Stage 3
+在 [G Tutor Repo](https://github.com/googlecodelabs/webrtc-web) 的 main.js 259-262
+```
+// Add click event handlers for buttons.
+startButton.addEventListener('click', startAction);
+callButton.addEventListener('click', callAction);
+hangupButton.addEventListener('click', hangupAction);
+```
+可以發現, 分為三階段 
+
+startAction 是開房間, 這邊實際上程式碼就是初始化自己的網頁, 抓取視訊設備, 把視訊畫面顯示在網頁上(理論上會看到自己)
+
+callAction 是處理連線(重點函式), 這邊發現了 `localPeerConnection = new RTCPeerConnection(servers);` 以及 `remotePeerConnection = new RTCPeerConnection(servers);`, 這就是前面 Stage 2所說的, 在一個程式碼裡面, 處理了兩個使用者行為, 不然正常 product code 正常只會有一個 new RTCPeerConnection 的呼叫
+
+### Stage 4
+接下來就是把程式碼跑一跑, trace一下程式碼, 到覺得差不多了, 就可以進行下一步
+
+## 來實作 Data Channel 的 Chat 功能
+可以參考 [影片](https://www.youtube.com/watch?v=NBPDYco-alo&list=PLK0STOMCFms4nXm1bRUdjhPg0coxI2U6h&index=9), 影片有提供 [bootstrap程式碼](https://github.com/coding-with-chaim/data-channel-starter-files), 以下講解一下 repo 內程式架構
+
+### server.js
+```js
+const express = require("express"); // http server
+const http = require("http");
+const app = express();
+const server = http.createServer(app);
+const socket = require("socket.io"); // websocket
+const io = socket(server);
+const cors = require("cors"); // 防止cors問題
+
+const rooms = {};
+
+app.use(cors());
+
+// socketio 是事件驅動的 websocket 函式庫封裝, 以下以 ws 稱呼 websocket
+
+
+// 監聽當跟 client 成功建立 ws 連線的時候
+io.on("connection", socket => {
+    
+    // 這邊的 on 是監聽 "join room" 這個頻道, 如果有訊息送過來, 因為socketio設計主要為chat app, 所以可以很方便監聽頻道
+    socket.on("join room", roomID => {
+        // 這個 roomID 就是雙方需要交換的資料
+        if (rooms[roomID]) {
+            rooms[roomID].push(socket.id);
+        } else {
+            rooms[roomID] = [socket.id];
+        }
+        const otherUser = rooms[roomID].find(id => id !== socket.id);
+        if (otherUser) {
+            // emit 函式會將 otherUser 訊息 push 到 "other user" 這個頻道內, 做連線設定
+            socket.emit("other user", otherUser);
+            socket.to(otherUser).emit("user joined", socket.id);
+        }
+    });
+
+    // offer 是從想連線進來的一方提供的資料
+    socket.on("offer", payload => {
+        io.to(payload.target).emit("offer", payload);
+    });
+
+    // answer 是做出回應的一方提供的資料
+    socket.on("answer", payload => {
+        io.to(payload.target).emit("answer", payload);
+    });
+
+    // ice-candidate 是要做另外的網路設定, 跟P2P的內網穿透有關, 更多資訊可以搜尋 WebRTC ICE NATS Traversal (註1)
+    socket.on("ice-candidate", incoming => {
+        io.to(incoming.target).emit("ice-candidate", incoming.candidate);
+    });
+});
+
+server.listen(8000, () => console.log('server is running on port 8000'));
+```
+
+/client/src/routes/CreateRoom.js
+```js
+import React from "react";
+import { v1 as uuid } from "uuid";
+
+const CreateRoom = (props) => {
+    function create() {
+        const id = uuid();
+        props.history.push(`/room/${id}`);
+    }
+
+    return (
+        <button onClick={create}>Create Room</button>
+    );
+}
+
+export default CreateRoom;
+```
+
+這個檔案的程式碼, 對應了 google 教學裡面的創建房間, 房間id是雙方需要交換的訊息
+
+/client/src/routes/Room.js
+```js
+// 節省篇幅此處省略
+```
+這個檔案程式碼比較多, 建議直接參考 [影片](https://www.youtube.com/watch?v=NBPDYco-alo&list=PLK0STOMCFms4nXm1bRUdjhPg0coxI2U6h&index=9) 及 [啟動程式碼](https://github.com/coding-with-chaim/data-channel-starter-files), 有了前面 google tutor 的 lab, 這邊的code應該相對來說可以看懂, 就是多了後端 nodejs 的 socketio 程式碼, 要稍微讀一下
+
+
+註1: 防火牆穿透供參 
+1. [ICE and WebRTC](https://temasys.io/guides/developers/webrtc-ice-sorcery/) 
+
+2. [穿越防火牆技術](http://www.cs.nccu.edu.tw/~lien/Writing/NGN/firewall.htm) 
+
+3. [NAT穿透](https://zh.wikipedia.org/zh-tw/NAT%E7%A9%BF%E9%80%8F)
+
+### 後記
+這篇文章是獻給個好朋友, 希望知道 WebRTC 怎麼做訊息傳遞, 不過以 Chat 的純文字傳送來說, 使用 Websocket 會相對簡單很多. 特別感謝好朋友, 因為自己想研究視訊這塊也很久了, 也總算是一圓了心願xD( 雖然離搞懂還有一段距離, 但是架構已經了解了, 實作就剩下花時間下去 )
