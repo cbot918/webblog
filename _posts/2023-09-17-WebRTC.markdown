@@ -17,7 +17,7 @@ tags:   Resources
 4. Nodejs SocketIO ( 一點點 )
 
 ## 前情提要
-有天突發奇想, 試試看做個 app 可以找外國人練習 speaking, 所以開始研究怎麼做視訊app. 
+有天突發奇想, 想試試看做個 app 可以找外國人練習 speaking, 所以開始研究怎麼做視訊app. 
 
 ## 研究調查
 看了一些資料後發現, 看得懂且自己做起來可行的架構
