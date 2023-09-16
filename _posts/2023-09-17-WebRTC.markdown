@@ -59,7 +59,14 @@ hangupButton.addEventListener('click', hangupAction);
 
 startAction 是開房間, 這邊實際上程式碼就是初始化自己的網頁, 抓取視訊設備, 把視訊畫面顯示在網頁上(理論上會看到自己)
 
-callAction 是處理連線(重點函式), 這邊發現了 `localPeerConnection = new RTCPeerConnection(servers);` 以及 `remotePeerConnection = new RTCPeerConnection(servers);`, 這就是前面 Stage 2所說的, 在一個程式碼裡面, 處理了兩個使用者行為, 不然正常 product code 正常只會有一個 new RTCPeerConnection 的呼叫
+callAction 是處理連線(重點函式), 這邊發現了 
+`localPeerConnection = new RTCPeerConnection(servers);` 
+
+以及 
+
+`remotePeerConnection = new RTCPeerConnection(servers);` 
+
+這就是前面 Stage 2所說的, 在一個程式碼裡面, 處理了兩個使用者行為, 不然正常 product code 正常只會有一個 new RTCPeerConnection 的呼叫
 
 ### Stage 4
 接下來就是把程式碼跑一跑, trace一下程式碼, 到覺得差不多了, 就可以進行下一步
