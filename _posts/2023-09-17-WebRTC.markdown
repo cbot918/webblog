@@ -64,9 +64,8 @@ hangupButton.addEventListener('click', hangupAction);
 ```
 可以發現, 分為三階段 
 
-startAction 是開房間, 這邊實際上程式碼就是初始化自己的網頁, 抓取視訊設備, 把視訊畫面顯示在網頁上(理論上會看到自己)
+startAction 是開房間, 這邊實際上程式碼就是初始化自己的網頁, 抓取視訊設備, 把視訊畫面顯示在網頁上(理論上會看到自己), callAction 是處理連線(重點函式), 這邊發現了 
 
-callAction 是處理連線(重點函式), 這邊發現了 
 `localPeerConnection = new RTCPeerConnection(servers);` 
 
 以及 
