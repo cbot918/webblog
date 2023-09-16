@@ -39,7 +39,7 @@ Media Server 架構分為兩段
 ex: 使用 [OBS](https://github.com/obsproject/obs-studio) 視訊直播, 將串流送到 Server 上, 然後前端使用 [FLV.js](https://github.com/bilibili/flv.js) 拉流播放
 
 ## 兩種架構的選擇
-Media Server 需要寫一台 Server, 並且推流/拉流需要額外賴, 樓主技能點數有限(學...學不動了), 喜歡輕巧的解決方案, 所以選網頁內建的 WebRTC, 谷哥我大哥(X)
+Media Server 需要寫一台 Server, 並且推流/拉流需要額外依賴, 樓主技能點數有限(學...學不動了), 喜歡輕巧的解決方案, 所以選網頁內建的 WebRTC, 谷哥我大哥(X)
 
 ## 開始學 WebRTC
 ### Stage 1
