@@ -31,6 +31,7 @@ WebRTC 是點對點連線, 理論上連線後不需要後端 ( 連線時需要�
 
 ## Media Server
 Media Server 是中介伺服器, 負責將視訊提供方的資料轉到視訊接收方
+
 Media Server 架構分為兩段
 1. 推流：資料從視訊方推送到 Media Server上, 一般稱為「推流」
 2. 拉流：資料從 Media Server上, 傳送到 Client 端, 稱為「拉流」
