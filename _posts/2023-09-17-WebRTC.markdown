@@ -27,7 +27,7 @@ tags:   Resources
 ## WebRTC
 WebRTC 是前端為起點的技術, 搭配後端做點對點握手/NAT路由穿透, 由 Google 發起, 內建在 [WebAPI](https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection) 裡的一個 WebAPI.
 
-WebRTC 是點對點連線, 理論上連線不需要後端( 在連線建立起來之後 )
+WebRTC 是點對點連線, 理論上連線後不需要後端 ( 連線時需要後端幫忙雙方做握手 )
 
 ## Media Server
 Media Server 是中介伺服器, 負責將視訊提供方的資料轉到視訊接收方
@@ -151,7 +151,10 @@ export default CreateRoom;
 
 
 
-### 後記
+### 後記1
+此文只涵蓋最基礎的 WebRTC 一對一連線, WebRTC還可以使用一些技術, 做一對多, 或是實現各種功能, 像是即時白板功能, 可以參考此 [playlist](https://www.youtube.com/watch?v=JhyY8LdAQHU&list=PLK0STOMCFms4nXm1bRUdjhPg0coxI2U6h&index=3)
+
+### 後記2
 這篇文章是獻給個好朋友, 希望知道 WebRTC 怎麼做訊息傳遞, 不過以 Chat 的純文字傳送來說, 使用 Websocket 會相對簡單很多. 特別感謝好朋友, 因為自己想研究視訊這塊也很久了, 也總算是一圓了心願xD( 雖然離搞懂還有一段距離, 但是架構已經了解了, 實作就剩下花時間下去 )
 
 
