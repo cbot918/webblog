@@ -68,7 +68,7 @@ Default Port:   9042
 #### 測試連線 
 1. 新增連線, 找到 cassandra
 2. 連線方式用 url ( Connected By 那邊要點一下)
-3. 我是用這樣去連 `jdbc:cassandra://localhost:9042/record?localdatacenter=datacenter1`
+3. 我是用這樣去連 `jdbc:cassandra://localhost:9042/history?localdatacenter=datacenter1`
 4. 左下角按一下 Test Connection, 得到ok
 5. 右下角按 finish 就ok了
 
@@ -76,24 +76,96 @@ Default Port:   9042
 #### 測試 SQL Editor
 滑鼠點開 cassandra 資料庫, 點開 Test Cluster (我是叫這個名字), 右鍵點 history, 開一個 SQL Editor
 ```sql
-CREATE TABLE rec (
+CREATE TABLE record (
    id int, 
    to_user int, 
    body text, 
    PRIMARY KEY (id)
 );
 
--- show tables
-DESCRIBE TABLES;
+-- 看 keyspace 裡面有什麼 table
+DESCRIBE keyspace;
 
--- insert 
-INSERT INTO rec (id, to_user, body) VALUES (1, 101, 'Hello, Cassandra!');
+-- insert
+insert into record (id, to_user, body) values (1,1,'hihi');
 
--- read
-SELECT * FROM rec;
+-- select
+select * from record;
 ```
 
 
+### golang 連線 cassandra
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+
+	"github.com/gocql/gocql"
+)
+
+func main() {
+	// Create a new cluster configuration
+	cluster := gocql.NewCluster("localhost:9042") // Replace with your Cassandra cluster address
+	cluster.Keyspace = ""                   // Replace with your keyspace name
+	cluster.Consistency = gocql.Quorum            // Set the desired consistency level
+
+	// Create a session to connect to Cassandra
+	session, err := cluster.CreateSession()
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer session.Close()
+
+	// // Create a keyspace and table (if they don't exist)
+	// if err := session.Query(`
+	//       CREATE KEYSPACE IF NOT EXISTS mykeyspace
+	//       WITH replication = {
+	//           'class': 'SimpleStrategy',
+	//           'replication_factor': 1
+	//       }`).Exec(); err != nil {
+	// 	log.Fatal(err)
+	// }
+
+	if err := session.Query(`
+        CREATE TABLE IF NOT EXISTS mytable (
+            id UUID PRIMARY KEY,
+            name TEXT
+        )`).Exec(); err != nil {
+		log.Fatal(err)
+	}
+
+	// Insert data into the table
+	id := gocql.TimeUUID()
+	name := "John Doe"
+
+	if err := session.Query(`
+        INSERT INTO mytable (id, name)
+        VALUES (?, ?)`, id, name).Exec(); err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("Inserted data: ID=%s, Name=%s\n", id.String(), name)
+
+	// Retrieve data from the table
+	var retrievedID gocql.UUID
+	var retrievedName string
+
+	if err := session.Query(`
+        SELECT id, name
+        FROM mytable
+        WHERE id = ?`, id).Scan(&retrievedID, &retrievedName); err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("Retrieved data: ID=%s, Name=%s\n", retrievedID.String(), retrievedName)
+}
+
+```
+
+
+[程式碼連結](https://github.com/cbot918/dbs/tree/main/cassandra)
 
 ### 後記
 開始玩一下 cassandra, 後面如果有相關知識統整起來再來文章好了, 目前大概 0
