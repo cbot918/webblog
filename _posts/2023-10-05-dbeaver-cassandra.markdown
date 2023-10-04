@@ -29,7 +29,18 @@ cqlsh
 cqlsh -u cassandra
 # 密碼輸入 cassandra
 ```
-看到 cassandra@cqlsh>   
+看到 cassandra@cqlsh>
+
+新增一個 database(keyspace)
+```
+CREATE KEYSPACE IF NOT EXISTS history
+WITH replication = {
+    'class': 'SimpleStrategy',
+    'replication_factor': 1
+};
+```
+history 是因為我想拿來存聊天的歷史紀錄, 可以自己改名字
+
 ok, docker cassandra 沒問題
 
 ### Setup DBeaver 
@@ -57,9 +68,30 @@ Default Port:   9042
 #### 測試連線 
 1. 新增連線, 找到 cassandra
 2. 連線方式用 url ( Connected By 那邊要點一下)
-3. 我是用這樣去連 `jdbc:cassandra://localhost:9042`
+3. 我是用這樣去連 `jdbc:cassandra://localhost:9042/record?localdatacenter=datacenter1`
 4. 左下角按一下 Test Connection, 得到ok
 5. 右下角按 finish 就ok了
+
+
+#### 測試 SQL Editor
+滑鼠點開 cassandra 資料庫, 點開 Test Cluster (我是叫這個名字), 右鍵點 history, 開一個 SQL Editor
+```sql
+CREATE TABLE rec (
+   id int, 
+   to_user int, 
+   body text, 
+   PRIMARY KEY (id)
+);
+
+-- show tables
+DESCRIBE TABLES;
+
+-- insert 
+INSERT INTO rec (id, to_user, body) VALUES (1, 101, 'Hello, Cassandra!');
+
+-- read
+SELECT * FROM rec;
+```
 
 
 
