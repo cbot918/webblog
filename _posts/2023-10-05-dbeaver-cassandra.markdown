@@ -9,7 +9,7 @@ tags:   Resources
 因為想玩一下 cassandra, 發現有些 db gui 沒有連線 cassandra的選項, servey 了一下最後的免費方案 dbeaver 安裝 driver,  以下紀錄一下步驟
 
 ### 快速參考:
-1. [教學影片](https://www.youtube.com/watch?v=HEG4cgTLJrA) (我基本上是參考這個)
+1. [教學影片](https://www.youtube.com/watch?v=OFST8Bt9J5Q) (我基本上是參考這個)
 2. [driver 下載位置](https://github.com/ing-bank/cassandra-jdbc-wrapper/releases/download/v4.10.0/cassandra-jdbc-wrapper-4.10.0-bundle.jar)
 3. [cassandra docker](https://hub.docker.com/_/cassandra)
 
