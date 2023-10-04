@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  (工具) dbeaver-cassandra
+title:  (工具及紀錄) DBeaver 連線 cassandra 及 go-cassandra-helloworld
 date:   2023-09-17 06:34:00 +0800
 image:  02.jpg
 tags:   Resources
