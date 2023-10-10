@@ -21,7 +21,7 @@ tags:   Resources
 - golang (optional)
 
 ## Getting Started
-有 golang 的話
+### 用 go 執行
 ```bash
 git clone https://github.com/cbot918/autodb
 cd autodb && go run .
@@ -38,7 +38,7 @@ docker exec -it autodb mysql -uroot -p12345 autodb -e "SELECT COUNT(table_name)
 docker exec -it autodb mysql -uroot -p12345  --default-character-set=utf8 autodb -e "SELECT * FROM t_goods;"
 ```
 
-也可以直接下載 cli 來用
+### 下載 cli 來用
 1. 下載安裝
 ```bash
 curl -OL https://github.com/cbot918/autodb/releases/download/v0.0.1/odb && sudo chmod +x odb && sudo mv odb /usr/local/bin
