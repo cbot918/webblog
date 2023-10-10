@@ -57,8 +57,9 @@ odb clean     # clean up container
 ```
 
 
-## 備註: 目前幾張表的 verify 寫死忘了改, 之後再變成動態好了QQ
+### 備註: 
+- 目前幾張表的 verify 寫死忘了改, 之後再變成動態好了QQ
 
-## 後記: 
+### 後記: 
 1. 後面要做 types gen (產 model type)
 2. 可以的話之後來做 dao gen (目前能力還不太夠)
