@@ -1,0 +1,64 @@
+---
+layout: post
+title:  (專案) autodb
+date:   2023-10-10 03:34:00 +0800
+image:  02.jpg
+tags:   Resources
+---
+
+最近在找教材練習, 遇到了一個狀況: 素材有提供 sql 檔案, 自己要開 db 以及 migrate sql code, 後面如果想實作的話, 還需要 types(model), 所以自己就開了一個小專案, 想做點自動化!
+
+## AutoDB 自動化以下流程
+1. 產生 .env
+2. 開一個 mysql container
+3. 預設一個 sample.sql
+4. 簡化 migrate
+5. 根據 schema 產生 struct type
+
+## 依賴
+- linux
+- docker
+- golang (optional)
+
+## Getting Started
+有 golang 的話
+```bash
+git clone https://github.com/cbot918/autodb
+cd autodb && go run .
+```
+verify scripts
+```bash
+# 看資料庫有 8 張表
+docker exec -it autodb mysql -uroot -p12345 autodb -e "SELECT COUNT(table_name)
+	FROM information_schema.tables
+	WHERE table_schema = 'autodb';"
+```
+```bash
+# 撈資料出來看
+docker exec -it autodb mysql -uroot -p12345  --default-character-set=utf8 autodb -e "SELECT * FROM t_goods;"
+```
+
+也可以直接下載 cli 來用
+1. 下載安裝
+```bash
+curl -OL https://github.com/cbot918/autodb/releases/download/v0.0.1/odb && sudo chmod +x odb && sudo mv odb /usr/local/bin
+```
+輸入 `odb` 這樣應該會看到 cli help
+
+2. 開始
+```bash
+mkdir testodb && cd testodb
+odb init      # init .env
+odb createdb  # create mysql container
+odb createsql # download sample.sql
+odb migrate   # odb migrate
+odb verifydb  # see table numbers
+odb clean     # clean up container
+```
+
+
+## 備註: 目前幾張表的 verify 寫死忘了改, 之後再變成動態好了QQ
+
+## 後記: 
+1. 後面要做 types gen (產 model type)
+2. 可以的話之後來做 dao gen (目前能力還不太夠)
