@@ -64,4 +64,4 @@ odb clean     # clean up container
 
 ### 後記: 
 1. 後面要做 types gen (產 model type)
-2. 可以的話之後來做 dao gen (目前能力還不太夠)
+2. 之後比較熟了來做看看 query to dao gen 
