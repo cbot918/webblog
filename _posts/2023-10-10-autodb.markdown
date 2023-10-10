@@ -6,7 +6,7 @@ image:  02.jpg
 tags:   Resources
 ---
 
-最近在找教材練習, 遇到了一個狀況: 素材有提供 sql 檔案, 自己要開 db 以及 migrate sql code, 後面如果想實作的話, 還需要 types(model), 所以自己就開了一個小專案, 想做點自動化!
+最近在找教材練習, 遇到了一個狀況: 素材有提供 sql 檔案, 自己要開 db 以及 migrate sql code, 後面如果想實作的話, 還需要 types(model), 覺得流程重複且麻煩,所以自己就開了一個小專案, 想做點自動化!
 
 ## AutoDB 自動化以下流程
 1. 產生 .env
