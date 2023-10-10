@@ -24,7 +24,7 @@ tags:   Resources
 ### 用 go 執行
 ```bash
 git clone https://github.com/cbot918/autodb
-cd autodb && go run .
+cd autodb && go mod tidy && go run .
 ```
 verify scripts
 ```bash
