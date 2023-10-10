@@ -13,7 +13,7 @@ tags:   Resources
 2. 開一個 mysql container
 3. 預設一個 sample.sql
 4. 簡化 migrate
-5. 根據 schema 產生 struct type
+5. 根據 schema 產生 struct type (還沒做完)
 
 ## 依賴
 - linux
