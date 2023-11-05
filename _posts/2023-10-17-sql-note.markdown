@@ -1,0 +1,22 @@
+---
+layout: post
+title: (筆記) SQL note
+date: 2023-10-17 03:34:00 +0800
+image: 02.jpg
+tags: Resources
+---
+
+在讀 [SQL 經典實例](https://www.books.com.tw/products/CN11728326)一書, 順便整理一下知識脈絡, 以此文紀錄
+
+1. SELECT _ FROM emp;
+   => _ 是特殊符號, 可以搜尋出全部欄位, 但最好還是標明要找的欄位, 對於別人來說也比較知道到底是要找什麼資料
+
+2. WHERE 及 條件判斷
+
+```sql
+SELECT *
+	FROM emp
+WHER deptno = 10
+		or comm is not null
+		or sal <= 2000 and deptno=20
+```

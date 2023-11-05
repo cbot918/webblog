@@ -1,0 +1,45 @@
+---
+layout: post
+title: (筆記) JS closure
+date: 2023-11-05 21:44:00 +0800
+image: 02.jpg
+tags: Resources
+---
+
+前幾天夥伴在討論面試問題「什麼是 closure」的時候, 做了一點思考, 此篇以紀錄自己簡單的理解及遇到面試官會怎麼回答：
+
+- closure 是一個當函式消失時, 內部的變數因為被其他地方使用, 導致變數沒有消失的一種現象, 這種現象很容易封裝成「狀態管理」函式庫, 例如最經典的 redux
+
+- closure 的出現使得我們不需要使用全域變數, 就可以跨範圍使用同一個變數, 並且避免使用全域變數容易遇到的 race condition
+
+- 由於變數的作用域是用函式的大括號來做區分, 所以閉包需要至少兩個 function 才能達成, 也常常就是 function return function 的形式
+
+- 以下舉個例子
+
+```js
+function createStore() {
+  let state = 0;
+
+  function add() {
+    state += 1;
+  }
+
+  function getState() {
+    return state;
+  }
+
+  return {
+    add,
+    getState,
+  };
+}
+
+let store = createStore();
+console.log(store.getState());
+// 0
+store.add();
+console.log(store.getState());
+// 1
+```
+
+我會用這樣的方式回答面試官,因為工作上通常閉包的觀念, 通常第三方函式庫都會封好,所以會使用比較重要, 但回答時有點出一些關鍵點例如：「避免使用全域變數造成 race-condition」, 「function return function」, 「把想要共用的變數封在 function 內, 就可以安全的跨區域共用」應該會有基本分數(其他分數就要看面試官本身技術方向, 或是能不能進一步討論出面試官想像中的回答)
