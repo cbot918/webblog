@@ -34,21 +34,21 @@ tags: Resources
 
 # 網路及資料庫
 
-1.網路
+1. 網路
 
-(1). http echo
+   1.1 . http echo
 
-(2).socket 長連接
+   1.2 .socket 長連接
 
-2.資料庫
+2. 資料庫
 
-(1).schema 設計
+   1.1 .schema 設計
 
-(2).migration
+   1.2 .migration
 
-(3).連線池, 連線物件傳遞
+   1.3 .連線池, 連線物件傳遞
 
-(4). DAO 封裝
+   1.4 . DAO 封裝
 
 # Fiber 框架
 
