@@ -64,9 +64,17 @@ tags: Resources
 
 # 三層式架構
 
+- repository arch
 - controller / service / dao
 
 # Database
 
 - sqlx
 - sqlc
+
+# 一些常用函式庫
+
+- godotenv
+- viper
+- zerolog
+- cobra
