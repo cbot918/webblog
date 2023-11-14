@@ -131,6 +131,7 @@ tags: Resources
 - js 如何做打包
 - webpack 打包
 - vite 打包
+- jQuery 簡介
 - react 簡介
 
 # Hour 4 React 入門 (另外 YT 影片)
