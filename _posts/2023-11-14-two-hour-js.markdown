@@ -1,7 +1,7 @@
 ---
 layout: post
 title: (線上分享筆記) 試著兩小時學會 JS
-date: 2023-11-17 22:10:00 +0800
+date: 2023-11-14 15:10:00 +0800
 image: 02.jpg
 tags: Resources
 ---
