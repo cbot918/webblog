@@ -13,7 +13,7 @@ tags: Resources
 作為自學仔, 想把自己自學 javascript 相關的知識整合, 做一個分享！
 
 - Hour1：基礎語法入門, 做個簡單的 form 表單
-- Hour2：介紹常用的 js api 及 web api, 做個簡單的 dashboard 頁面
+- Hour2：介紹常用的 js api 及 web api
 - Hour3(YT 影片)：build js app
 - Hour4(YT 影片)：react 入門
 - Hour5(YT 影片)：碰點簡單的後端, 分享給初學想要稍微接觸後端 nodejs 的朋友
