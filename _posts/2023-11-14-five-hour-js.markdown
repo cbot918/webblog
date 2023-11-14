@@ -120,8 +120,9 @@ tags: Resources
 - js 的非同步機制
 - fetch
 - promise
+- 什麼是閉包
 
-# Hour 3 怎麼 build 前端 app (另外用 YT 影片呈現)
+# Hour 3 怎麼 build 前端 app (另外 YT 影片)
 
 - http 通訊協定
 - cors
@@ -132,7 +133,7 @@ tags: Resources
 - vite 打包
 - react 簡介
 
-# Hour 4 React 入門 (另外用 YT 影片呈現)
+# Hour 4 React 入門 (另外 YT 影片)
 
 - react library
 - react component
@@ -147,7 +148,7 @@ tags: Resources
 - react todolist
 - deploy todolist to github pages
 
-# Hour 5 第一個 app (另外用 YT 影片呈現)
+# Hour 5 第一個 app (另外 YT 影片)
 
 1. express server
 
