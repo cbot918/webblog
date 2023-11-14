@@ -12,11 +12,11 @@ tags: Resources
 
 前端工程師是很多人轉職的選項, 作為軟體工程領域的敲門磚, 學會 javascript 一門程式語言以及 HTML/CSS 作為輔助, 就可以進入軟體工程的領域！這系列的開篇, 我們就用 javascript 作為第一隻箭, 來開始了解什麼是網頁前端開發吧！
 
-- 第一個小時, 基礎語法入門, 做個簡單的 form 表單
-- 第二個小時, 介紹常用的 js api 及 web api, 做個簡單的 dashboard 頁面
-- 第三個小時(YT 影片形式呈現), 碰點簡單的後端, 分享給初學想要稍微接觸後端 nodejs 的朋友
--
-- 第二個小時 for 初學但想碰點後端的朋友
+- Hour1：基礎語法入門, 做個簡單的 form 表單
+- Hour2：介紹常用的 js api 及 web api, 做個簡單的 dashboard 頁面
+- Hour3(YT 影片)：build js app
+- Hour4(YT 影片)：react 入門
+- Hour5(YT 影片)：碰點簡單的後端, 分享給初學想要稍微接觸後端 nodejs 的朋友
 
 # Hour 1 認識 js 語法
 
