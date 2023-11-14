@@ -1,6 +1,6 @@
 ---
 layout: post
-title: (線上分享筆記) 試著兩小時學會 JS
+title: (線上分享筆記) javascript in 5 hours
 date: 2023-11-14 15:10:00 +0800
 image: 02.jpg
 tags: Resources
@@ -15,7 +15,7 @@ tags: Resources
 - 第一個小時, 基礎語法入門, 做個簡單的 form 表單
 - 第二個小時, 介紹常用的 js api 及 web api, 做個簡單的 dashboard 頁面
 - 第三個小時(YT 影片形式呈現), 碰點簡單的後端, 分享給初學想要稍微接觸後端 nodejs 的朋友
-
+-
 - 第二個小時 for 初學但想碰點後端的朋友
 
 # Hour 1 認識 js 語法
@@ -116,7 +116,7 @@ tags: Resources
 - js 的 function
 - 什麼是 functional programming style
 - js 的 object
-- object oriented
+- js 的 object oriented
 - js 的非同步機制
 - fetch
 - promise
