@@ -50,6 +50,15 @@ sudo ufw allow 3306
 sudo systemctl restart mysql
 ```
 
+- 本地 sql editor 去連線
+
+```bash
+Host: 在 linode dashboard 上面看 ip
+Port: 3306
+User: remote
+Password: 12345
+```
+
 - (如果需要的話) 刪除 mysql-server
 
 ```bash
