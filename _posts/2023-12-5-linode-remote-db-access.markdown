@@ -10,13 +10,13 @@ tags: Resources
 
 - 情境：自己的電腦連線到 [Akamai Linode](https://www.linode.com/) VM 裡面的 mysql-server
 
-- 安裝 mysql-server
+1. 安裝 mysql-server
 
 ```bash
 sudo apt update && sudo apt install mysql-server
 ```
 
-- 初始化 mysql-server
+2. 初始化 mysql-server
 
 ```bash
 sudo mysql_secure_installation
@@ -25,14 +25,14 @@ sudo mysql_secure_installation
 # 其他看自己
 ```
 
-- 改 mysql 外部連線設定
+3. 改 mysql 外部連線設定
 
 ```bash
 vim /etc/mysql/mysql.conf.d/mysqld.cnf
 # bind-address 127.0.0.1  -> 0.0.0.0
 ```
 
-- 新增遠端存取的使用者
+4. 新增遠端存取的使用者
 
 ```bash
 CREATE USER 'remote'@'%' IDENTIFIED BY '12345';
@@ -40,19 +40,19 @@ GRANT ALL PRIVILEGES ON *.* TO 'remote'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
-- 開防火牆
+5. 開防火牆
 
 ```bash
 sudo ufw allow 3306
 ```
 
-- 重開 mysql
+6. 重開 mysql
 
 ```bash
 sudo systemctl restart mysql
 ```
 
-- 本地 sql editor 去連線
+7. 本地 sql editor 去連線
 
 ```bash
 Host: 在 linode dashboard 上面看 ip
