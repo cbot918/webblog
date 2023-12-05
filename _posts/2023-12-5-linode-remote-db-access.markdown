@@ -1,6 +1,6 @@
 ---
 layout: post
-title: (筆記) liode-remote-db-access
+title: (筆記) Lionde Remote DB Access
 date: 2023-12-5 15:10:00 +0800
 image: 02.jpg
 tags: Resources
