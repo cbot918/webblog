@@ -8,7 +8,7 @@ tags: Resources
 
 紀錄一下 linode 安裝 mysql 直到在本機用 sql editor 連線進去的過程
 
-- 環境: [Akamai Linode](https://www.linode.com/)
+- 情境：自己的電腦連線到 [Akamai Linode](https://www.linode.com/) VM 裡面的 mysql-server
 
 - 安裝 mysql-server
 
