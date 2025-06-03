@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Firecracker MicroVM
-date: 2025-6-3 15:10:00 +0800
+date: 2025-6-3 13:10:00 +0800
 image: 02.jpg
 tags: Resources
 ---
@@ -179,3 +179,7 @@ firecracker-microvm.github.io
 e2b.dev
 。只要對其架構特性和限制有清晰認識並做好相應的配置管理，一台 5 萬元級別的 Linux 主機完全可以藉助 Firecracker 成為一套可靠的自建雲服務平台，用於部署多租戶的輕量虛擬機以對外提供各種 Web API 或服務。
 ```
+
+## 後記
+
+一個主題的研究可能是當下，也可能是持續好幾次中斷的接觸。滿開心自己在一些自己的興趣主題，都有多次的接觸，每次接觸就會更了解他一些！
